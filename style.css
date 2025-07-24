@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background: #424242; /* cinza grafite */
+    background: #2f2f2f; /* cinza grafite */
     color: white; /* texto branco */
     padding: 1em;
     text-align: center;
@@ -48,7 +48,7 @@ section.visible {
 }
 
 footer {
-     background: #2f2f2f; /* cinza grafite */
+    background: #2f2f2f; /* cinza grafite */
     color: white; /* texto branco */
     padding: 1em;
     text-align: center;
