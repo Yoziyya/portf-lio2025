@@ -24,19 +24,19 @@ section {
 
 /* Backgrounds for each section */
 #inicio {
-    background-image: url('bg-inicio.jpg');
+    background-image: url('bg-inicio');
 }
 
 #sobre {
-    background-image: url('bg-sobre.jpg');
+    background-image: url('bg-sobre');
 }
 
 #projetos {
-    background-image: url('bg-projetos.jpg');
+    background-image: url('bg-projetos');
 }
 
 #contato {
-    background-image: url('bg-contato.jpg');
+    background-image: url('bg-contato');
 }
 
 /* Optional: semi-transparent background for content readability */
