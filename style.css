@@ -1,49 +1,43 @@
 
-body {
+/* Reset and base styles */
+body, html {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Top bar with paper texture */
 header {
   background-image: url('papel-antigo');
   background-size: cover;
   background-position: center;
-  color: #fff;
   padding: 20px;
+  color: #333;
   text-align: center;
 }
 
-section {
-  min-height: 100vh;
+/* Section backgrounds */
+#inicio {
+  background-image: url('bg-inicio');
   background-size: cover;
   background-position: center;
   padding: 60px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#inicio {
-  background-image: url('bg-inicio');
 }
 
 #sobre {
   background-image: url('bg-sobre');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
 }
 
 #projetos {
   background-image: url('bg-projetos');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
 }
 
 #contato {
   background-image: url('bg-contato');
-}
-
-.content {
-  background-color: rgba(205, 170, 125, 0.85); /* tom papel pardo com transparência */
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 800px;
-  color: #222;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
+  background-size: cover
