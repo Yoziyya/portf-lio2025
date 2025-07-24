@@ -1,46 +1,53 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
     padding: 20px;
+    scroll-behavior: smooth;
     text-align: center;
     color: #333;
+    background-color: #f8f9fa; /* branco gelo */
 }
+
 header {
-    background: #2f2f2f;/*cinza grafite*/
-    color: white;/*texto branco*/
+    background: #2f2f2f; /* cinza grafite */
+    color: white; /* texto branco */
     padding: 1em;
     text-align: center;
 }
-header h1, header h2, header h3{
-    font-weight: bold;/*negrito nos titulos*/
-    margin-bottom: 0,5em;/*espaçamento entre os titulos*/
+
+header h1, header h2, header h3 {
+    font-weight: bold; /* negrito nos títulos */
+    margin-bottom: 0.5em; /* espaçamento entre os títulos */
 }
+
 nav a {
     margin: 0 10px;
-    color: #fff; /*cor branca*/
-    text-decoration: none; /*sem sublinhado*/
-    font-weight:bold;/*opcional: deixar os links também em negrito*/
+    color: #fff; /* cor branca */
+    text-decoration: none; /* sem sublinhado */
+    font-weight: bold; /* links em negrito */
 }
+
 section {
     padding: 2em;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease-out;
 }
+
 section.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 .card {
     background: white;
     padding: 1em;
     margin: 1em 0;
     border-left: 5px solid #222;
 }
+
 footer {
-    background-image: url('papel-antigo.jpg');
+    background-image: url('papel-pardo.jpg'); /* substituído por papel pardo */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
