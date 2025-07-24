@@ -7,15 +7,20 @@ body {
     color: #333;
 }
 header {
-    background: #222;
-    color: white;
+    background: #2f2f2f;/*cinza grafite*/
+    color: white;/*texto branco*/
     padding: 1em;
     text-align: center;
 }
+header h1, header h2, header h3{
+    font-weight: bold;/*negrito nos titulos*/
+    margin-bottom: 0,5em;/*espaçamento entre os titulos*/
+}
 nav a {
     margin: 0 10px;
-    color: #fff;
-    text-decoration: none;
+    color: #fff; /*cor branca*/
+    text-decoration: none; /*sem sublinhado*/
+    font-weight:bold;/*opcional: deixar os links também em negrito*/
 }
 section {
     padding: 2em;
