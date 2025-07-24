@@ -1,47 +1,49 @@
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 header {
-    background-image: url('papel-antigo');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-    padding: 20px;
-    text-align: center;
+  background-image: url('papel-antigo');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
 section {
-    padding: 60px 20px;
-    color: #333;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Backgrounds for each section */
 #inicio {
-    background-image: url('bg-inicio');
+  background-image: url('bg-inicio');
 }
 
 #sobre {
-    background-image: url('bg-sobre');
+  background-image: url('bg-sobre');
 }
 
 #projetos {
-    background-image: url('bg-projetos');
+  background-image: url('bg-projetos');
 }
 
 #contato {
-    background-image: url('bg-contato');
+  background-image: url('bg-contato');
 }
 
-/* Optional: semi-transparent background for content readability */
-section .content {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 20px;
-    border-radius: 8px;
+.content {
+  background-color: rgba(205, 170, 125, 0.85); /* tom papel pardo com transparência */
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  color: #222;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
