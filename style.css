@@ -1,41 +1,77 @@
-body {
-    font-family: Arial, sans-serif;
+body, html {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
-    background: #f4f4f4;
+    font-family: 'Segoe UI', sans-serif;
     color: #333;
 }
+
+/* Header with paper texture */
 header {
-    background: #222;
-    color: white;
-    padding: 1em;
+    background-image: url('papel-antigo.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
     text-align: center;
+    color: #2c1c00;
+    font-size: 2em;
+    font-weight: bold;
 }
-nav a {
-    margin: 0 10px;
-    color: #fff;
-    text-decoration: none;
-}
+
+/* Section base styles */
 section {
-    padding: 2em;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
+    padding: 60px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+
+/* Backgrounds for each section */
+#inicio {
+    background-image: url('bg-inicio.jpg');
 }
-.card {
-    background: white;
-    padding: 1em;
-    margin: 1em 0;
-    border-left: 5px solid #222;
+
+#sobre {
+    background-image: url('bg-sobre.jpg');
 }
-footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 1em;
+
+#projetos {
+    background-image: url('bg-projetos.jpg');
+}
+
+#contato {
+    background-image: url('bg-contato.jpg');
+}
+
+/* Content container with semi-transparent background */
+.content-box {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive text */
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.5em;
+        padding: 30px 10px;
+    }
+
+    .content-box {
+        padding: 20px;
+    }
 }
