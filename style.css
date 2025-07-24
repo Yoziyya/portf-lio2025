@@ -1,71 +1,27 @@
-/* Reset and base styles */
-body, html {
+
+body {
     margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* branco gelo */
+    color: #333;
 }
 
-/* Top navigation bar with paper texture */
 header {
-    background-image: url('papel-antigo');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: #2f2f2f; /* cinza grafite */
+    color: white;
     padding: 20px;
-    color: #333;
     text-align: center;
 }
 
-/* Section backgrounds */
-#inicio {
-    background-image: url('bg-inicio');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 60px 20px;
+section {
+    padding: 40px 20px;
 }
 
-#sobre {
-    background-image: url('bg-sobre');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 60px 20px;
+h2 {
+    margin-top: 0;
 }
 
-#projetos {
-    background-image: url('bg-projetos');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 60px 20px;
-}
-
-#contato {
-    background-image: url('bg-contato');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 60px 20px;
-}
-
-/* Content box with semi-transparent paper-pardo background */
-.content {
-    background-color: rgba(205, 170, 125, 0.85); /* papel pardo semi-transparente */
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    color: #222;
-}
-
-/* Headings and text */
-h1, h2, h3 {
-    color: #2c1c0f;
-}
-
-p {
-    line-height: 1.6;
+a {
+    color: #2f2f2f;
+    text-decoration: none;
 }
