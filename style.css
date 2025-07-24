@@ -5,7 +5,10 @@ body {
     scroll-behavior: smooth;
     text-align: center;
     color: #333;
-    background-color: #f8f9fa; /* branco gelo */
+    background-image: url('papel-pardo.jpg'); /* fundo com papel pardo */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 header {
@@ -16,15 +19,15 @@ header {
 }
 
 header h1, header h2, header h3 {
-    font-weight: bold; /* negrito nos títulos */
-    margin-bottom: 0.5em; /* espaçamento entre os títulos */
+    font-weight: bold;
+    margin-bottom: 0.5em;
 }
 
 nav a {
     margin: 0 10px;
-    color: #fff; /* cor branca */
-    text-decoration: none; /* sem sublinhado */
-    font-weight: bold; /* links em negrito */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 section {
@@ -47,11 +50,8 @@ section.visible {
 }
 
 footer {
-    background-image: url('papel-pardo.jpg'); /* substituído por papel pardo */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #333;
+    background: #2f2f2f; /* cinza grafite */
+    color: white;
     text-align: center;
     padding: 1em;
 }
