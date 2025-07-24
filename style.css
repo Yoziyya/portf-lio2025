@@ -1,21 +1,25 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
     scroll-behavior: smooth;
-    text-align: left;
+    text-align: center;
     color: #333;
+    background-image: url('papel-pardo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 header {
-    background: #2f2f2f; /* cinza grafite */
-    color: white; /* texto branco */
+    background: #2f2f2f;
+    color: white;
     padding: 1em;
     text-align: center;
 }
 
-header h1, header h2, header h3 {
-    font-weight: bold;
+header h1 {
     margin-bottom: 0.5em;
 }
 
@@ -28,14 +32,7 @@ nav a {
 
 section {
     padding: 2em;
-    opacity: 0;
-    transform: translateY(20px);
     transition: all 0.6s ease-out;
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .card {
@@ -43,20 +40,14 @@ section.visible {
     padding: 1em;
     margin: 1em 0;
     border-left: 5px solid #222;
+    border-radius: 5px;
 }
 
 footer {
-    background: #2f2f2f; /* cinza grafite */
-    color: white; /* texto branco */
-    padding: 1em;
+    background: #2f2f2f;
+    color: white;
     text-align: center;
-}
-#linha-do-tempo {
-    padding: 2em;
-    background-color: rgba(255, 255, 255, 0.8); /* leve contraste sobre o papel pardo */
-    border-radius: 10px;
-    max-width: 800px;
-    margin: auto;
+    padding: 1em;
 }
 
 .timeline {
@@ -64,18 +55,19 @@ footer {
     flex-direction: column;
     gap: 1.5em;
     position: relative;
-    padding-left: 20px;
+    padding-left: 30px;
     border-left: 3px solid #2f2f2f;
 }
 
 .event {
     position: relative;
+    cursor: pointer;
 }
 
 .event::before {
     content: '';
     position: absolute;
-    left: -10px;
+    left: -15px;
     top: 5px;
     width: 15px;
     height: 15px;
@@ -87,4 +79,27 @@ footer {
     font-weight: bold;
     color: #2f2f2f;
     font-size: 1.2em;
+    display: block;
+    margin-bottom: 1em;
+}
+
+.event img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 1em;
+    }
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
 }
