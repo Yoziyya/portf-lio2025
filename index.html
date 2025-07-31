@@ -6,60 +6,50 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Estilos adicionais para centralizar imagens, remover linhas e estilizar ícones */
+        /* Estilos adicionais para os links das imagens e ícones sociais */
+        .timeline .event img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Garante que a imagem ocupe o espaço corretamente */
+            margin-bottom: 10px;
+        }
 
-        /* Centralizar imagens na linha do tempo */
         .timeline .event a {
-            display: flex; /* Usar flexbox para centralizar */
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente (se necessário) */
+            display: block; /* Faz o link ocupar todo o espaço da imagem */
             text-decoration: none; /* Remove sublinhado padrão do link */
             color: inherit; /* Mantém a cor do texto padrão do elemento pai */
-            margin-bottom: 10px; /* Espaço abaixo da imagem/link */
         }
-        /* Se ainda assim as linhas aparecerem, é provável que elas estejam no seu 'style.css'.
-           Procure por 'border-left', 'box-shadow', 'background-image' ou pseudo-elementos
-           (::before, ::after) dentro de seletores como '.timeline', '.event', '.timeline-container'
-           no seu arquivo 'style.css' e remova-os ou ajuste-os. */
 
-
-        /* Estilos para os ícones sociais */
         .social-icons {
             margin-top: 20px;
             display: flex;
-            flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
-            justify-content: center; /* Centraliza os ícones */
-            gap: 30px; /* Espaço entre os ícones */
+            justify-content: center; /* Centraliza os ícones, ajuste conforme sua preferência */
+            gap: 20px; /* Espaço entre os ícones */
         }
 
         .social-icons a {
-            display: flex; /* Permite alinhar ícone e texto */
-            flex-direction: column; /* Ícone em cima, texto embaixo */
-            align-items: center; /* Centraliza ícone e texto */
-            text-decoration: none;
-            color: #333; /* Cor padrão dos ícones e texto */
-            font-size: 1.1em; /* Tamanho da fonte para a legenda */
-            transition: color 0.3s ease;
+            font-size: 2.5em; /* Tamanho dos ícones */
+            color: #333; /* Cor padrão dos ícones, mude para a cor que desejar */
+            transition: color 0.3s ease; /* Transição suave na mudança de cor */
         }
 
-        .social-icons a i {
-            font-size: 2.5em; /* Tamanho do ícone */
-            margin-bottom: 5px; /* Espaço entre o ícone e a legenda */
+        .social-icons a:hover {
+            color: #007bff; /* Cor ao passar o mouse, mude para a cor que desejar */
         }
 
-        /* Cores específicas de hover para as redes sociais */
+        /* Estilos específicos para as cores das redes sociais ao passar o mouse */
         .social-icons .fa-facebook:hover {
             color: #3b5998; /* Facebook blue */
         }
+
         .social-icons .fa-instagram:hover {
             color: #C13584; /* Instagram purple/pink */
         }
+
         .social-icons .fa-whatsapp:hover {
             color: #25D366; /* WhatsApp green */
         }
-        .social-icons .fa-envelope:hover {
-            color: #D44638; /* Gmail red-ish */
-        }
+
     </style>
 </head>
 <body>
@@ -184,26 +174,22 @@ unindo-se aos modelos que são verdadeiros ar stas da dança em nossa comunidade
     <section id="contato">
         <h2>Vamos conversar?</h2>
         <p>Entre em contato para colaborações, editais ou apenas trocar ideias.</p>
+        <p>Meu Whatsapp é (31)975108934</p>
+        <p>No Instagram @Yoziyya e @curumasbreaking</p>
+        <p>Email: josiasjr.91@gmail.com</p>
+
         <div class="social-icons">
             <a href="https://www.facebook.com/SEU_USUARIO_FACEBOOK" target="_blank" aria-label="Facebook">
                 <i class="fab fa-facebook"></i>
-                <span>Facebook</span>
             </a>
-            <a href="https://www.instagram.com/Yoziyya" target="_blank" aria-label="Instagram Yoziyya">
+            <a href="https://www.instagram.com/Yoziyya" target="_blank" aria-label="Instagram de Yoziyya">
                 <i class="fab fa-instagram"></i>
-                <span>@Yoziyya</span>
-            </a>
-            <a href="https://www.instagram.com/curumasbreaking" target="_blank" aria-label="Instagram Curumas Breaking">
-                <i class="fab fa-instagram"></i>
-                <span>@curumasbreaking</span>
             </a>
             <a href="https://api.whatsapp.com/send?phone=5531975108934&text=Olá%20Josias,%20vim%20pelo%20seu%20portfólio!" target="_blank" aria-label="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp</span>
             </a>
-            <a href="mailto:josiasjr.91@gmail.com" aria-label="E-mail">
-                <i class="fas fa-envelope"></i>
-                <span>E-mail</span>
+            <a href="https://www.instagram.com/curumasbreaking" target="_blank" aria-label="Instagram de Curumas Breaking">
+                <i class="fab fa-instagram"></i>
             </a>
         </div>
     </section>
