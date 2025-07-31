@@ -243,40 +243,40 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
                     <a href="https://example.com/link-para-arquivo-ou-pagina-2017-1" target="_blank">
                         <img src="04" alt="Foto de 2017">
                     </a>
-                    <p class="hidden">Em 2017, com o encerramento da maioria das oficinas do programa Fica Vivo, fui indicado pelo Professor Wilson como seu sucessor. Decidi estabelecer um novo ponto para as oficinas no antigo espaço do CRAS e Curumim. Mesmo depredado e abandonado pelo poder público, o local possuía um enorme potencial, e para mim, o principal era ocupar esse espaço que nos pertencia com arte. Todas as terças e quintas-feiras, eu caminhava 2 km, do bairro Castanheiras até o Cristina, levando balde, rodo, desinfetante e pano para higienizar o piso onde treinaríamos. </p>
+                    <p class="hidden">Em 2017, com o encerramento da maioria das oficinas do programa Fica Vivo, fui indicado pelo Professor Wilson como seu sucessor. Decidi estabelecer um novo ponto para as oficinas no antigo espaço do CRAS e Curumim. Mesmo depredado e abandonado pelo poder público, o local possuía um enorme potencial, e para mim, o principal era ocupar esse espaço que nos pertencia com arte. Todas as terças e quintas-feiras, eu caminhava 2 km, do bairro Castanheiras até o Cristina, levando balde, rodo, desinfetante e pano para higienizar o piso onde treinaríamos. </p>
                 </div>
             </div>
         </section>
     </section>
 
-   <section id="Acesse">
-    <h2>Clipping</h2>
-    <p>Arraste para os lados</p>
-    <div class="clipping-carousel">
-        <div class="carousel-wrapper">
-            <div class="reportagem">
-                <a href="https://www.facebook.com/share/1B7RQuJdsF/" target="_blank">
-                    <img src="mostracurio.jpeg" alt="Top Rock Identidade - Mostra Curió">
-                </a>
-            </div>
-            <div class="reportagem">
-                <a href="https://bhaz.com.br/guia-bhaz/teatro-exposicoes/cinema-fachada-filmes-teatro-espanca/&ved=2ahUKEwixvorU5eeOAhXSq5UCHT1oHyAQFnoECB8QAQ&usg=AOvVaw3dQfMfIhzqe1M_fj0P_j24" target="_blank">
-                    <img src="cinemafachada.jpeg" alt="Corre no Sinal - Cinema de Fachada">
-                </a>
-            </div>
-            <div class="reportagem">
-                <a href="https://www.instagram.com/p/Cze0RP2piRt/?img_index=6&igsh=MWp2ZzYwa2d4Mng1bw==" target="_blank">
-                    <img src="cb01.jpeg" alt="Curumas Batle - BH +Feliz">
-                </a>
-            </div>
-            <div class="reportagem">
-                <a href="https://www.youtube.com/live/RCiqpMnfhyQ?si=SCuZ8bb99C5MZCrO" target="_blank">
-                    <img src="seminariourbano.jpeg" alt="Seminário Urbano - LAB">
-                </a>
+   <section id="clipping">
+        <h2>Clipping</h2>
+        <p>Arraste para os lados para ver as reportagens:</p>
+        <div class="clipping-carousel">
+            <div class="carousel-wrapper">
+                <div class="reportagem">
+                    <a href="https://www.facebook.com/share/1B7RQuJdsF/" target="_blank">
+                        <img src="mostracurio.jpeg" alt="Top Rock Identidade - Mostra Curió">
+                    </a>
+                </div>
+                <div class="reportagem">
+                    <a href="https://bhaz.com.br/guia-bhaz/teatro-exposicoes/cinema-fachada-filmes-teatro-espanca/&ved=2ahUKEwixvorU5eeOAhXSq5UCHT1oHyAQFnoECB8QAQ&usg=AOvVaw3dQfMfIhzqe1M_fj0P_j24" target="_blank">
+                        <img src="cinemafachada.jpeg" alt="Corre no Sinal - Cinema de Fachada">
+                    </a>
+                </div>
+                <div class="reportagem">
+                    <a href="https://www.instagram.com/p/Cze0RP2piRt/?img_index=6&igsh=MWp2ZzYwa2d4Mng1bw==" target="_blank">
+                        <img src="cb01.jpeg" alt="Curumas Batle - BH +Feliz">
+                    </a>
+                </div>
+                <div class="reportagem">
+                    <a href="https://www.youtube.com/live/RCiqpMnfhyQ?si=SCuZ8bb99C5MZCrO" target="_blank">
+                        <img src="seminariourbano.jpeg" alt="Seminário Urbano - LAB">
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="projetos">
         <h2>Projetos e Ideias</h2>
@@ -369,15 +369,26 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
         document.addEventListener('DOMContentLoaded', () => {
             const carousel = document.querySelector('.clipping-carousel');
             const slider = carousel.querySelector('.carousel-wrapper');
+            
+            // Clonar os elementos para o carrossel infinito
+            const firstClone = slider.firstElementChild.cloneNode(true);
+            const lastClone = slider.lastElementChild.cloneNode(true);
+
+            slider.insertBefore(lastClone, slider.firstElementChild);
+            slider.appendChild(firstClone);
+
             const reports = Array.from(slider.children);
             const reportWidth = reports[0].offsetWidth;
+            let currentIndex = 1; // Começa no primeiro item real
+
+            slider.style.transition = 'none';
+            slider.style.transform = `translateX(-${reportWidth}px)`;
 
             let isDragging = false;
             let startPos = 0;
-            let currentTranslate = 0;
-            let prevTranslate = 0;
+            let currentTranslate = -reportWidth;
+            let prevTranslate = -reportWidth;
             let animationID;
-            let currentIndex = 0;
 
             reports.forEach((report, index) => {
                 const img = report.querySelector('img');
@@ -399,7 +410,7 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
                 isDragging = true;
                 startPos = getPositionX(e);
                 animationID = requestAnimationFrame(animation);
-                slider.style.transition = 'none'; // Remove a transição para permitir o arrasto
+                slider.style.transition = 'none';
             }
 
             function dragEnd() {
@@ -407,21 +418,21 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
                 cancelAnimationFrame(animationID);
                 const movedBy = currentTranslate - prevTranslate;
 
-                if (movedBy < -100 && currentIndex < reports.length - 1) {
+                if (movedBy < -100) {
                     currentIndex++;
                 }
-                if (movedBy > 100 && currentIndex > 0) {
+                if (movedBy > 100) {
                     currentIndex--;
                 }
 
                 setPositionByIndex();
-                slider.style.transition = 'transform 0.3s ease-out';
             }
 
             function drag(e) {
                 if (isDragging) {
                     const currentPosition = getPositionX(e);
                     currentTranslate = prevTranslate + currentPosition - startPos;
+                    setSliderPosition();
                 }
             }
 
@@ -441,13 +452,34 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
             }
 
             function setPositionByIndex() {
+                // Adiciona a transição suave
+                slider.style.transition = 'transform 0.3s ease-out';
                 currentTranslate = currentIndex * -reportWidth;
                 prevTranslate = currentTranslate;
                 setSliderPosition();
             }
 
-            // Garante que o carrossel inicie na posição correta
-            setPositionByIndex();
+            // Ouve a transição para fazer a "troca" invisível
+            slider.addEventListener('transitionend', () => {
+                const totalReports = reports.length - 2; // Exclui os clones
+                
+                if (currentIndex === totalReports + 1) { // Chegou ao final (clone do primeiro)
+                    slider.style.transition = 'none';
+                    currentIndex = 1;
+                    currentTranslate = -reportWidth;
+                    prevTranslate = currentTranslate;
+                    setSliderPosition();
+                }
+
+                if (currentIndex === 0) { // Chegou ao início (clone do último)
+                    slider.style.transition = 'none';
+                    currentIndex = totalReports;
+                    currentTranslate = currentIndex * -reportWidth;
+                    prevTranslate = currentTranslate;
+                    setSliderPosition();
+                }
+            });
+
         });
     </script>
 </body>
