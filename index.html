@@ -17,26 +17,6 @@
             color: inherit; /* Mantém a cor do texto padrão do elemento pai */
             margin-bottom: 10px; /* Espaço abaixo da imagem/link */
         }
-
-        .timeline .event img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            /* margin: 0 auto; */ /* Esta linha não é mais necessária com display: flex no pai */
-        }
-
-        /* Removendo as linhas cinza grafite */
-        /* Assumindo que essas linhas vêm de um estilo padrão do .timeline ou .event */
-        /* Se as linhas persistirem, você precisará inspecionar o elemento no navegador (F12)
-           para descobrir qual propriedade CSS as está gerando e ajustá-la aqui.
-           Exemplos comuns que podem causar linhas: border-left, box-shadow, background-image, pseudo-elementos ::before/::after. */
-        .timeline::before,
-        .timeline .event::before {
-            display: none; /* Desabilita pseudo-elementos que podem criar as linhas */
-            border-left: none; /* Garante que não há borda esquerda */
-            box-shadow: none; /* Garante que não há sombra que pareça linha */
-            background-image: none; /* Garante que não há imagem de fundo que crie a linha */
-        }
         /* Se ainda assim as linhas aparecerem, é provável que elas estejam no seu 'style.css'.
            Procure por 'border-left', 'box-shadow', 'background-image' ou pseudo-elementos
            (::before, ::after) dentro de seletores como '.timeline', '.event', '.timeline-container'
