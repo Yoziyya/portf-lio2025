@@ -7,17 +7,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Estilos adicionais para os links das imagens e ícones sociais */
-        .timeline .event img {
-            max-width: 100%;
-            height: auto;
-            display: block; /* Garante que a imagem ocupe o espaço corretamente */
-            margin-bottom: 10px;
-        }
+        /* No seu arquivo style.css */
 
-        .timeline .event a {
-            display: block; /* Faz o link ocupar todo o espaço da imagem */
-            text-decoration: none; /* Remove sublinhado padrão do link */
-            color: inherit; /* Mantém a cor do texto padrão do elemento pai */
+.timeline .event a {
+    display: flex;             /* Transforma o link em um container flexível */
+    justify-content: center;   /* Centraliza o conteúdo (a imagem) horizontalmente */
+    align-items: center;       /* Centraliza o conteúdo verticalmente (útil se a imagem for menor que o espaço do link) */
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 10px;
+}
+
+.timeline .event img {
+    max-width: 100%;           /* Garante que a imagem não transborde seu contêiner */
+    height: auto;              /* Mantém a proporção da imagem */
+    display: block;            /* Remove qualquer espaço extra que navegadores podem adicionar a imagens */
+}
         }
 
         .social-icons {
@@ -159,7 +164,6 @@ unindo-se aos modelos que são verdadeiros ar stas da dança em nossa comunidade
             <h3>Rock in The Cypher</h3>
             <p>Um evento que busca reunir e potencializar os elementos clássicos da cultura Hip-hop</p>
         </div>
-        <div class="card">
             <div class="card">
             <h3>Curumims Burn Battle</h3>
             <p>A proposta consiste em fazer uma batalha de danças onde serão analisadas a execução da dança de forma explosiva, as entradas de cada participante não poderão exceder 30 segundos. Assim tudo será bem fluido e diferente dos eventos de dança tradicionais provocando uma inovação nas formas de dança.</p>
