@@ -24,46 +24,27 @@
     display: block;            /* Remove qualquer espaço extra que navegadores podem adicionar a imagens */
 /* --- Estilos para os ícones sociais --- */
 .social-icons {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
-    justify-content: center; /* Centraliza os ícones */
-    gap: 30px; /* Espaço entre os ícones */
-}
-/* --- Estilos para os ícones sociais (Novo Formato de Contato) --- */
-.social-icons {
-    margin-top: 30px; /* Mais espaço acima dos ícones */
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px; /* Mais espaço entre os ícones */
+    gap: 40px; /* Espaço entre os ícones e legendas */
 }
 
 .social-icons a {
-    display: flex;
-    flex-direction: column; /* Ícone em cima, legenda embaixo */
-    align-items: center;
+    display: flex; /* Permite alinhar ícone e texto em coluna */
+    flex-direction: column; /* Organiza o conteúdo em coluna (ícone, depois legenda) */
+    align-items: center; /* Centraliza o ícone e a legenda */
     text-decoration: none;
-    color: #333; /* Cor base para a legenda (pode ser ajustada) */
-    font-size: 1.1em;
-    position: relative; /* Necessário para posicionar a legenda de forma absoluta ou efeitos */
-    transition: transform 0.3s ease;
+    color: #333; /* Cor da legenda */
+    font-size: 1.2em; /* Tamanho da fonte para a legenda */
+    transition: transform 0.3s ease; /* Transição suave no hover */
 }
 
 .social-icons a i {
-    font-size: 3em; /* Ícones um pouco maiores */
+    font-size: 5em; /* Aumentado para 5x o tamanho original */
     margin-bottom: 8px; /* Espaço entre o ícone e a legenda */
     transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.social-icons a span {
-    font-size: 0.8em; /* Legenda menor que o texto normal */
-    color: rgba(51, 51, 51, 0.6); /* Cor da legenda semitransparente (ajuste o último valor para mais ou menos transparência) */
-    opacity: 0; /* Começa invisível */
-    position: absolute; /* Posição absoluta para a legenda */
-    bottom: -25px; /* Posição abaixo do ícone, ajuste conforme necessário */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    white-space: nowrap; /* Evita quebra de linha na legenda */
 }
 
 /* Cores padrão para cada ícone */
@@ -83,19 +64,15 @@
     color: #D44638; /* Gmail red-ish */
 }
 
-/* Efeitos de hover: ícone e legenda aparecem/se destacam */
+/* Efeito de hover */
 .social-icons a:hover {
-    transform: translateY(-5px); /* Move o ícone ligeiramente para cima */
+    transform: translateY(-5px); /* Move o link inteiro ligeiramente para cima no hover */
 }
 
 .social-icons a:hover i {
     transform: scale(1.1); /* Um leve zoom no ícone */
     filter: brightness(1.1); /* Um leve brilho */
 }
-
-.social-icons a:hover span {
-    opacity: 1; /* Torna a legenda totalmente visível no hover */
-    transform: translateY(-5px); /* Move a legenda junto com o ícone */
 }
     </style>
 </head>
@@ -218,31 +195,32 @@ unindo-se aos modelos que são verdadeiros ar stas da dança em nossa comunidade
     </section>
 
 <section id="contato">
-        <h2>Vamos conversar?</h2>
-        <p>Entre em contato para colaborações, editais ou apenas trocar ideias.</p>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/SEU_USUARIO_FACEBOOK" target="_blank" aria-label="Facebook">
-                <i class="fab fa-facebook"></i>
-                <span>Facebook</span>
-            </a>
-            <a href="https://www.instagram.com/Yoziyya" target="_blank" aria-label="Instagram Yoziyya">
-                <i class="fab fa-instagram"></i>
-                <span>@Yoziyya</span>
-            </a>
-            <a href="https://www.instagram.com/curumasbreaking" target="_blank" aria-label="Instagram Curumas Breaking">
-                <i class="fab fa-instagram"></i>
-                <span>@curumasbreaking</span>
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=5531975108934&text=Olá%20Josias,%20vim%20pelo%20seu%20portfólio!" target="_blank" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp</span>
-            </a>
-            <a href="mailto:josiasjr.91@gmail.com" aria-label="E-mail">
-                <i class="fas fa-envelope"></i>
-                <span>E-mail</span>
-            </a>
-        </div>
-    </section>
+    <h2>Vamos conversar?</h2>
+    <p>Entre em contato para colaborações, editais ou apenas trocar ideias.</p>
+    
+    <div class="social-icons">
+        <a href="https://www.facebook.com/SEU_USUARIO_FACEBOOK" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+            <span>Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/Yoziyya" target="_blank" aria-label="Instagram Yoziyya">
+            <i class="fab fa-instagram"></i>
+            <span>@Yoziyya</span>
+        </a>
+        <a href="https://www.instagram.com/curumasbreaking" target="_blank" aria-label="Instagram Curumas Breaking">
+            <i class="fab fa-instagram"></i>
+            <span>@curumasbreaking</span>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5531975108934&text=Olá%20Josias,%20vim%20pelo%20seu%20portfólio!" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="mailto:josiasjr.91@gmail.com" aria-label="E-mail">
+            <i class="fas fa-envelope"></i>
+            <span>E-mail</span>
+        </a>
+    </div>
+</section>
 
     <footer>
         <p>© 2025 Josias. Criado com afeto e imaginação.</p>
