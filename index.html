@@ -73,6 +73,65 @@
             transform: scale(1.1);
             filter: brightness(1.1);
         }
+        
+        /* --- Estilos da Seção de Clipping (NOVA) --- */
+        #clipping {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        #clipping h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #clipping p {
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .clipping-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px; /* Largura do carrossel */
+            margin: 0 auto;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .reportagem {
+            flex: 0 0 100%; /* Cada slide ocupa 100% da largura do contêiner */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .reportagem.active {
+            opacity: 1;
+        }
+
+        .reportagem a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .reportagem img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Controles do carrossel, se necessário */
+        .carousel-control {
+            display: none; /* Esconde os botões de navegação, já que a transição é automática */
+        }
     </style>
 </head>
 <body>
@@ -81,6 +140,7 @@
         <nav>
             <a href="#inicio">Apresentação</a>
             <a href="#sobre">Timeline</a>
+            <a href="#clipping">Clipping</a>
             <a href="#projetos">Projetos</a>
             <a href="#contato">Contato</a>
         </nav>
@@ -102,6 +162,7 @@ Em 2001, nos mudamos para Vespasiano, a primeira vez que tive um asfalto do lado
             <div class="timeline">
                 <div class="event" onclick="toggleText(this)">
                     <span class="year">2004</span>
+                    <a href="https://example.com/link-para-arquivo-ou-pagina-2004" target="_blank">
                         <img src="01" alt="Foto de 2004">
                     </a>
                     <p class="hidden">Em 2004, conheci um coletivo que estava nascendo no bairro Jardim da Glória, em Vespasiano-MG. Era uma seletiva para integrar o grupo de dança Impacto. Fiz o teste, fui aprovado e, a partir dali, comecei a me apresentar com o grupo em espetáculos de dança e teatro. 
@@ -110,6 +171,7 @@ Durante cinco anos, vivemos uma intensa jornada artística, levando arte a escol
                 </div>
                 <div class="event" onclick="toggleText(this)">
                     <span class="year">2008</span>
+                    <a href="https://example.com/link-para-arquivo-ou-pagina-2008" target="_blank">
                         <img src="02" alt="Foto de 2008">
                     </a>
                     <p class="hidden">Em 2008, a convite de um amigo, tive a oportunidade de conhecer um treino de danças urbanas na Igreja São José, no bairro Nova Esperança, em Santa Luzia/MG. As oficinas faziam parte do programa Fica Vivo e eram ministradas pelo professor Black-A (Fernando), uma figura essencial no desenvolvimento da cultura Hip-Hop em Santa Luzia. Infelizmente, as oficinas de danças urbanas e DJ do programa Fica Vivo foram encerradas logo após a pandemia. 
@@ -118,6 +180,7 @@ As últimas atividades foram a minha oficina de breaking no Curumim do Cristina 
                 </div>
                 <div class="event" onclick="toggleText(this)">
                     <span class="year">2013</span>
+                    <a href="https://example.com/link-para-arquivo-ou-pagina-2013" target="_blank">
                         <img src="03" alt="Foto de 2013">
                     </a>
                     <p class="hidden">Em 2013, o cenário para alguns dançarinos era desafiador: enquanto uns enfrentavam a prisão, outros, como eu, iniciavam suas jornadas no mercado de trabalho. 
@@ -128,6 +191,7 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
                 </div>
                 <div class="event" onclick="toggleText(this)">
                     <span class="year">2017</span>
+                    <a href="https://example.com/link-para-arquivo-ou-pagina-2017-1" target="_blank">
                         <img src="04" alt="Foto de 2017">
                     </a>
                     <p class="hidden">Em 2017, com o encerramento da maioria das oficinas do programa Fica Vivo, fui indicado pelo Professor Wilson como seu sucessor. Decidi estabelecer um novo ponto para as oficinas no antigo espaço do CRAS e Curumim. Mesmo depredado e abandonado pelo poder público, o local possuía um enorme potencial, e para mim, o principal era ocupar esse espaço que nos pertencia com arte. Todas as terças e quintas-feiras, eu caminhava 2 km, do bairro Castanheiras até o Cristina, levando balde, rodo, desinfetante e pano para higienizar o piso onde treinaríamos. </p>
@@ -135,7 +199,31 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
             </div>
         </section>
     </section>
-    
+
+    <section id="clipping">
+        <h2>Clipping</h2>
+        <p>Confira algumas reportagens e menções sobre meu trabalho:</p>
+        <div class="clipping-carousel">
+            <div class="carousel-wrapper">
+                <div class="reportagem">
+                    <a href="link-para-reportagem-1" target="_blank">
+                        <img src="imagem-da-reportagem-1.jpg" alt="Título da Reportagem 1">
+                    </a>
+                </div>
+                <div class="reportagem">
+                    <a href="link-para-reportagem-2" target="_blank">
+                        <img src="imagem-da-reportagem-2.jpg" alt="Título da Reportagem 2">
+                    </a>
+                </div>
+                <div class="reportagem">
+                    <a href="link-para-reportagem-3" target="_blank">
+                        <img src="imagem-da-reportagem-3.jpg" alt="Título da Reportagem 3">
+                    </a>
+                </div>
+                </div>
+        </div>
+    </section>
+
     <section id="projetos">
         <h2>Projetos e Ideias</h2>
         <div class="card">
@@ -201,6 +289,27 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
             const p = element.querySelector("p");
             p.classList.toggle("hidden");
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reports = document.querySelectorAll('.clipping-carousel .reportagem');
+            let currentReport = 0;
+
+            function showReport(index) {
+                reports.forEach(report => report.classList.remove('active'));
+                reports[index].classList.add('active');
+            }
+
+            function nextReport() {
+                currentReport = (currentReport + 1) % reports.length;
+                showReport(currentReport);
+            }
+
+            // Exibe o primeiro slide ao carregar a página
+            if (reports.length > 0) {
+                showReport(currentReport);
+                setInterval(nextReport, 2000); // Passa para o próximo slide a cada 2 segundos
+            }
+        });
     </script>
 </body>
 </html>
