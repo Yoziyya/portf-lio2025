@@ -30,21 +30,40 @@
     justify-content: center; /* Centraliza os ícones */
     gap: 30px; /* Espaço entre os ícones */
 }
+/* --- Estilos para os ícones sociais (Novo Formato de Contato) --- */
+.social-icons {
+    margin-top: 30px; /* Mais espaço acima dos ícones */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* Mais espaço entre os ícones */
+}
 
 .social-icons a {
-    display: flex; /* Permite alinhar ícone e texto */
-    flex-direction: column; /* Ícone em cima, texto embaixo */
-    align-items: center; /* Centraliza ícone e texto */
-    text-decoration: none; /* Remove sublinhado padrão do link */
-    color: #333; /* Cor padrão do texto da legenda */
-    font-size: 1.1em; /* Tamanho da fonte para a legenda */
-    transition: transform 0.3s ease; /* Transição suave para o efeito de zoom no hover */
+    display: flex;
+    flex-direction: column; /* Ícone em cima, legenda embaixo */
+    align-items: center;
+    text-decoration: none;
+    color: #333; /* Cor base para a legenda (pode ser ajustada) */
+    font-size: 1.1em;
+    position: relative; /* Necessário para posicionar a legenda de forma absoluta ou efeitos */
+    transition: transform 0.3s ease;
 }
 
 .social-icons a i {
-    font-size: 2.5em; /* Tamanho dos ícones */
-    margin-bottom: 5px; /* Espaço entre o ícone e a legenda */
-    transition: color 0.3s ease, transform 0.3s ease; /* Transição para cor e zoom */
+    font-size: 3em; /* Ícones um pouco maiores */
+    margin-bottom: 8px; /* Espaço entre o ícone e a legenda */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons a span {
+    font-size: 0.8em; /* Legenda menor que o texto normal */
+    color: rgba(51, 51, 51, 0.6); /* Cor da legenda semitransparente (ajuste o último valor para mais ou menos transparência) */
+    opacity: 0; /* Começa invisível */
+    position: absolute; /* Posição absoluta para a legenda */
+    bottom: -25px; /* Posição abaixo do ícone, ajuste conforme necessário */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap; /* Evita quebra de linha na legenda */
 }
 
 /* Cores padrão para cada ícone */
@@ -64,9 +83,9 @@
     color: #D44638; /* Gmail red-ish */
 }
 
-/* Efeito de hover (opcional: um leve zoom ou brilho) */
+/* Efeitos de hover: ícone e legenda aparecem/se destacam */
 .social-icons a:hover {
-    transform: translateY(-5px); /* Move o ícone ligeiramente para cima no hover */
+    transform: translateY(-5px); /* Move o ícone ligeiramente para cima */
 }
 
 .social-icons a:hover i {
@@ -74,14 +93,10 @@
     filter: brightness(1.1); /* Um leve brilho */
 }
 
-/* Remover os estilos de hover de cor específicos, já que a cor base já está definida */
-/* .social-icons .fa-facebook:hover,
-.social-icons .fa-instagram:hover,
-.social-icons .fa-whatsapp:hover,
-.social-icons .fa-envelope:hover {
-    color: var(--cor-original-da-rede-social); /* Manter a cor original ou um tom mais claro/escuro */
-/* } */
-
+.social-icons a:hover span {
+    opacity: 1; /* Torna a legenda totalmente visível no hover */
+    transform: translateY(-5px); /* Move a legenda junto com o ícone */
+}
     </style>
 </head>
 <body>
@@ -202,9 +217,10 @@ unindo-se aos modelos que são verdadeiros ar stas da dança em nossa comunidade
         
     </section>
 
-  <section id="contato">
+ <section id="contato">
     <h2>Vamos conversar?</h2>
     <p>Entre em contato para colaborações, editais ou apenas trocar ideias.</p>
+    
     <div class="social-icons">
         <a href="https://www.facebook.com/SEU_USUARIO_FACEBOOK" target="_blank" aria-label="Facebook">
             <i class="fab fa-facebook"></i>
