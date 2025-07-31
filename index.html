@@ -45,29 +45,27 @@
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
+            cursor: grab; /* Altera o cursor para indicar que é arrastável */
+        }
+
+        .clipping-carousel:active {
+            cursor: grabbing;
         }
 
         .carousel-wrapper {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.3s ease-out; /* Transição para o efeito de "snap" */
+            touch-action: pan-y; /* Permite o scroll vertical, mas impede o horizontal por padrão, o que é controlado por JS */
         }
 
         .reportagem {
             flex: 0 0 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            padding: 0 10px; /* Espaço para as imagens */
+            box-sizing: border-box;
+            user-select: none; /* Impede que o texto seja selecionado ao arrastar */
+            -webkit-user-drag: none; /* Impede o arrasto de imagens em alguns navegadores */
         }
-
-        .reportagem.active {
-            opacity: 1;
-        }
-
-        .reportagem a {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-
+        
         .reportagem img {
             width: 100%;
             height: auto;
@@ -253,28 +251,24 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
 
     <section id="clipping">
         <h2>Clipping</h2>
-        <p>Confira algumas reportagens e menções sobre meu trabalho:</p>
+        <p>Arraste para os lados para ver as reportagens:</p>
         <div class="clipping-carousel">
             <div class="carousel-wrapper">
                 <div class="reportagem">
                     <a href="https://www.facebook.com/share/1B7RQuJdsF/" target="_blank">
-                        <img src="mostracurio" alt="Oficina - Mostra Curió">
+                        <img src="mostracurio.jpeg" alt="Top Rock Identidade - Mostra Curió">
                     </a>
                 </div>
                 <div class="reportagem">
-                    <a href="https://www.instagram.com/p/Cze0RP2piRt/?img_index=6&igsh=MWp2ZzYwa2d4Mng1bw==">
-                        <img src="cb01.jpeg" alt="Apresentação - BH +Feliz">
+                    <a href="link-para-reportagem-2" target="_blank">
+                        <img src="imagem-da-reportagem-2.jpg" alt="Título da Reportagem 2">
                     </a>
                 </div>
                 <div class="reportagem">
-                    <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://bhaz.com.br/guia-bhaz/teatro-exposicoes/cinema-fachada-filmes-teatro-espanca/&ved=2ahUKEwixvorU5eeOAxXSq5UCHT1oHyAQFnoECB8QAQ&usg=AOvVaw3dQfMfIhzqe1M_fj0P_j24" target="_blank">
-                        <img src="imagem-da-reportagem-3.jpg" alt="Cinema de Fachada">
+                    <a href="link-para-reportagem-3" target="_blank">
+                        <img src="imagem-da-reportagem-3.jpg" alt="Título da Reportagem 3">
                     </a>
                 </div>
-             <div class="reportagem">
-                    <a href="https://www.youtube.com/live/RCiqpMnfhyQ?si=SCuZ8bb99C5MZCrO" target="_blank">
-                        <img src="seminariourmano" alt="Seminário Urbano - 2021">
-                    </a>
                 </div>
         </div>
     </section>
@@ -368,25 +362,87 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const reports = document.querySelectorAll('.clipping-carousel .reportagem');
-            let currentReport = 0;
+            const carousel = document.querySelector('.clipping-carousel');
+            const slider = carousel.querySelector('.carousel-wrapper');
+            const reports = Array.from(slider.children);
+            const reportWidth = reports[0].offsetWidth;
 
-            function showReport(index) {
-                reports.forEach(report => report.classList.remove('active'));
-                if (reports[index]) {
-                    reports[index].classList.add('active');
+            let isDragging = false;
+            let startPos = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let animationID;
+            let currentIndex = 0;
+
+            reports.forEach((report, index) => {
+                const img = report.querySelector('img');
+                img.addEventListener('dragstart', (e) => e.preventDefault());
+            });
+
+            // Eventos para desktop
+            carousel.addEventListener('mousedown', dragStart);
+            carousel.addEventListener('mouseup', dragEnd);
+            carousel.addEventListener('mouseleave', dragEnd);
+            carousel.addEventListener('mousemove', drag);
+
+            // Eventos para mobile
+            carousel.addEventListener('touchstart', dragStart);
+            carousel.addEventListener('touchend', dragEnd);
+            carousel.addEventListener('touchmove', drag);
+
+            function dragStart(e) {
+                isDragging = true;
+                startPos = getPositionX(e);
+                animationID = requestAnimationFrame(animation);
+                slider.style.transition = 'none'; // Remove a transição para permitir o arrasto
+            }
+
+            function dragEnd() {
+                isDragging = false;
+                cancelAnimationFrame(animationID);
+                const movedBy = currentTranslate - prevTranslate;
+
+                if (movedBy < -100 && currentIndex < reports.length - 1) {
+                    currentIndex++;
+                }
+                if (movedBy > 100 && currentIndex > 0) {
+                    currentIndex--;
+                }
+
+                setPositionByIndex();
+                slider.style.transition = 'transform 0.3s ease-out';
+            }
+
+            function drag(e) {
+                if (isDragging) {
+                    const currentPosition = getPositionX(e);
+                    currentTranslate = prevTranslate + currentPosition - startPos;
                 }
             }
 
-            function nextReport() {
-                currentReport = (currentReport + 1) % reports.length;
-                showReport(currentReport);
+            function getPositionX(e) {
+                return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
             }
 
-            if (reports.length > 0) {
-                showReport(currentReport);
-                setInterval(nextReport, 2000); // Passa para o próximo slide a cada 2 segundos
+            function animation() {
+                setSliderPosition();
+                if (isDragging) {
+                    requestAnimationFrame(animation);
+                }
             }
+
+            function setSliderPosition() {
+                slider.style.transform = `translateX(${currentTranslate}px)`;
+            }
+
+            function setPositionByIndex() {
+                currentTranslate = currentIndex * -reportWidth;
+                prevTranslate = currentTranslate;
+                setSliderPosition();
+            }
+
+            // Garante que o carrossel inicie na posição correta
+            setPositionByIndex();
         });
     </script>
 </body>
