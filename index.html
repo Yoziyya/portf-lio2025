@@ -22,6 +22,116 @@
             display: block;
         }
 
+        /* --- Estilos da Seção de Clipping --- */
+        #clipping {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        #clipping h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #clipping p {
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .clipping-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .reportagem {
+            flex: 0 0 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .reportagem.active {
+            opacity: 1;
+        }
+
+        .reportagem a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .reportagem img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Estilos da Seção de Projetos --- */
+        #projetos {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        #projetos h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .card .project-image {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .card .project-content {
+            flex-grow: 1;
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .card .project-image {
+                margin-bottom: 15px;
+                max-width: 100%;
+            }
+        }
+
         /* --- Estilos dos Ícones Sociais --- */
         .social-icons {
             margin-top: 30px;
@@ -72,65 +182,6 @@
         .social-icons a:hover i {
             transform: scale(1.1);
             filter: brightness(1.1);
-        }
-        
-        /* --- Estilos da Seção de Clipping (NOVA) --- */
-        #clipping {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #f9f9f9;
-        }
-
-        #clipping h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        #clipping p {
-            margin-bottom: 30px;
-            color: #555;
-        }
-
-        .clipping-carousel {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 800px; /* Largura do carrossel */
-            margin: 0 auto;
-        }
-
-        .carousel-wrapper {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .reportagem {
-            flex: 0 0 100%; /* Cada slide ocupa 100% da largura do contêiner */
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .reportagem.active {
-            opacity: 1;
-        }
-
-        .reportagem a {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .reportagem img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Controles do carrossel, se necessário */
-        .carousel-control {
-            display: none; /* Esconde os botões de navegação, já que a transição é automática */
         }
     </style>
 </head>
@@ -226,29 +277,51 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
 
     <section id="projetos">
         <h2>Projetos e Ideias</h2>
+        
         <div class="card">
-            <h3>Espetáculo: A Criação dos mundos</h3>
-            <p>Uma proposta de intervenção urbana que traz um olhar usando arquétipos da astronomia e abstrações como linguagem para tentar entender a construção de cada percepção da realidade como um universo particular.</p>
+            <img src="caminho-para-imagem-1.jpg" alt="Imagem do projeto A Criação dos mundos" class="project-image">
+            <div class="project-content">
+                <h3>Espetáculo: A Criação dos mundos</h3>
+                <p>Uma proposta de intervenção urbana que traz um olhar usando arquétipos da astronomia e abstrações como linguagem para tentar entender a construção de cada percepção da realidade como um universo particular.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="caminho-para-imagem-2.jpg" alt="Imagem do projeto Vogue Parade" class="project-image">
+            <div class="project-content">
+                <h3>Vogue Parade</h3>
+                <p>A Vogue Parade é uma fascinante fusão entre a vibração do Soul Train e a exuberância do Ballroom. Imagine um deslumbrante desfile de moda concebido pelos cria vos representantes da moda local, unindo-se aos modelos que são verdadeiros ar stas da dança em nossa comunidade. Nesse contexto inovador, a avaliação transcende as fronteiras do comum e adentra o domínio do es lo pessoal, originalidade e auten cidade.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="caminho-para-imagem-3.jpg" alt="Imagem do projeto Seminário Urbano" class="project-image">
+            <div class="project-content">
+                <h3>Seminário Urbano</h3>
+                <p>O Seminário Urbano é um encontro onde se discutem temas pertinentes relacionados à cultura em contexto urbano</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="caminho-para-imagem-4.jpg" alt="Imagem do projeto Rock in The Cypher" class="project-image">
+            <div class="project-content">
+                <h3>Rock in The Cypher</h3>
+                <p>Um evento que busca reunir e potencializar os elementos clássicos da cultura Hip-hop</p>
+            </div>
         </div>
         <div class="card">
-            <h3>Vogue Parade</h3>
-            <p>A Vogue Parade é uma fascinante fusão entre a vibração do Soul Train e a exuberância do Ballroom. Imagine um deslumbrante desfile de moda concebido pelos cria vos representantes da moda local, unindo-se aos modelos que são verdadeiros ar stas da dança em nossa comunidade. Nesse contexto inovador, a avaliação transcende as fronteiras do comum e adentra o domínio do es lo pessoal, originalidade e auten cidade.</p>
+            <img src="caminho-para-imagem-5.jpg" alt="Imagem do projeto Curumims Burn Battle" class="project-image">
+            <div class="project-content">
+                <h3>Curumims Burn Battle</h3>
+                <p>A proposta consiste em fazer uma batalha de danças onde serão analisadas a execução da dança de forma explosiva, as entradas de cada participante não poderão exceder 30 segundos. Assim tudo será bem fluido e diferente dos eventos de dança tradicionais provocando uma inovação nas formas de dança.</p>
+            </div>
         </div>
         <div class="card">
-            <h3>Seminário Urbano</h3>
-            <p>O Seminário Urbano é um encontro onde se discutem temas pertinentes relacionados à cultura em contexto urbano</p>
-        </div>
-        <div class="card">
-            <h3>Rock in The Cypher</h3>
-            <p>Um evento que busca reunir e potencializar os elementos clássicos da cultura Hip-hop</p>
-        </div>
-        <div class="card">
-            <h3>Curumims Burn Battle</h3>
-            <p>A proposta consiste em fazer uma batalha de danças onde serão analisadas a execução da dança de forma explosiva, as entradas de cada participante não poderão exceder 30 segundos. Assim tudo será bem fluido e diferente dos eventos de dança tradicionais provocando uma inovação nas formas de dança.</p>
-        </div>
-        <div class="card">
-            <h3>Curumims Batle: Sellect Mode</h3>
-            <p>Como seria um museu que muda de forma conforme o visitante entra? Vamos imaginar juntos?</p>
+            <img src="caminho-para-imagem-6.jpg" alt="Imagem do projeto Curumims Batle: Sellect Mode" class="project-image">
+            <div class="project-content">
+                <h3>Curumims Batle: Sellect Mode</h3>
+                <p>Como seria um museu que muda de forma conforme o visitante entra? Vamos imaginar juntos?</p>
+            </div>
         </div>
     </section>
 
@@ -296,7 +369,9 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
 
             function showReport(index) {
                 reports.forEach(report => report.classList.remove('active'));
-                reports[index].classList.add('active');
+                if (reports[index]) {
+                    reports[index].classList.add('active');
+                }
             }
 
             function nextReport() {
@@ -304,7 +379,6 @@ Em 2019, após produzir a última edição do "Combate em Família", desliguei-m
                 showReport(currentReport);
             }
 
-            // Exibe o primeiro slide ao carregar a página
             if (reports.length > 0) {
                 showReport(currentReport);
                 setInterval(nextReport, 2000); // Passa para o próximo slide a cada 2 segundos
